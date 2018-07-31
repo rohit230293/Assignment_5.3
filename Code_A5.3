@@ -1,0 +1,17 @@
+import scipy.stats as stats
+
+#Considering Alpha_Val as 0.05
+Alpha_Val = 0.05
+
+A = [10, 20, 30, 40, 50]
+B = [5, 10, 15, 20, 25]
+
+DOF_between = 1
+DOF_within = len(A) + len(B) - 2
+print('DOF_within = {} , DOF_between = {}'.format(DOF_within,DOF_between))
+F_critical = st.f.ppf(q=1-Alpha_Val, dfn=DOF_between, dfd=DOF_within)
+print('F_critical value here is {}'.format(F_critical))
+
+out = stats.f_oneway(A,B)
+print("F_value = {}, P_value = {}".format(out[0],out[1]))
+F_critical = st.f.ppf(q=1-Alpha_Val, dfn=DOF_between, dfd=DOF_total)
